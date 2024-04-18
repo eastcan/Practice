@@ -1,28 +1,17 @@
 class Solution {
 public:
-    bool isPalindrome(int x)
+    int removeElement(vector<int>& nums, int val)
     {
-        if(x<0||(x%10==0&&x!=0))
-        return false;
-        if(x==0)
-        return true;
-        string str=to_string(x);
-        int n=0;
-        while(str[n]!='\0')
+        int n=size(nums);
+        int left=0;
+        for(int right=0;right<n;right++)
         {
-            n++;
-        }
-        int t=n;
-        int Judge=1;
-        for(int i=0;i<=t/2;i++)
-        {
-            if(str[i]==str[n-1])
+            if(nums[right]!=val)
             {
-                n--;
+                nums[left]=nums[right];
+                left++;
             }
-            else
-            return false;
         }
-        return true;
+        return left;
     }
 };
